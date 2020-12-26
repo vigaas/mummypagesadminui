@@ -1,0 +1,54 @@
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+      <div class="card-title">
+        <h3 class="card-label">Doctor List</h3>
+      </div>
+      <div class="card-toolbar">
+        <a type="button" class="btn btn-primary" [routerLink]="['/mpdirectory/doctor/add']"
+          >New Doctor</a
+        >
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive angular-bootstrap-table">
+        <table
+          class="table table-head-custom table-vertical-center overflow-hidden"
+        >
+          <thead>
+            <th>
+              Name
+            </th>
+            <th>
+                Qualifications
+            </th>
+            <th>
+              Specialist In
+            </th>
+            <th>
+                Visiting Hospitals
+              </th>
+            <th>ACTIONS</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctorItem of apiData.doctorData">
+              <td>
+                {{ doctorItem.name }}
+              </td>
+              <td>{{ doctorItem.qualifications }}</td>
+              <td>{{ doctorItem.specialistIn }}</td>
+              <td>{{ doctorItem.visitingHospitals }}</td>
+              <td>
+                <a [routerLink]="['/mpdirectory/doctor/edit',doctorItem._id]">Edit</a>
+                <span> | </span>
+                <a role="button" (click)="deleteDoctor(doctorItem._id)" [routerLink]="">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end: Table -->
+    </div>
+  </div>
+  
+  

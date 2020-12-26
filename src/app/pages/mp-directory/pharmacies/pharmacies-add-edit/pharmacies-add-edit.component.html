@@ -1,0 +1,180 @@
+
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+      <div class="card-title">
+        <h3 class="card-label">{{pharmaciesId ? 'Edit' : 'Add'}} Pharmacies</h3>
+      </div>
+    </div>
+    <div class="card-body">
+
+        <form novalidate #pharmaciesIdForm="ngForm">
+
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                #name="ngModel"
+                [(ngModel)]="pharmaciesInfo.name"
+              />
+              <ng-container
+              [ngTemplateOutlet]="formError"
+              [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'Pharmacies Name is required',
+                control: name
+              }"
+            ></ng-container>
+            </div>
+            <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="pharmacist"
+                  #pharmacist ="ngModel"
+                  placeholder="pharmacist"
+                  [(ngModel)]="pharmaciesInfo.pharmacist"
+                />
+                <ng-container
+                [ngTemplateOutlet]="formError"
+                [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'pharmacist is required',
+                  control: name
+                }"
+              ></ng-container>
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="certificate"
+                  placeholder="certificate"
+                  [(ngModel)]="pharmaciesInfo.certificate"
+                />
+              </div>
+            <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="address"
+                  placeholder="address"
+                  [(ngModel)]="pharmaciesInfo.address"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="contactNumber"
+                  placeholder="Contact Number"
+                  [(ngModel)]="pharmaciesInfo.contactNumber"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="emailId"
+                  placeholder="Email Id"
+                  [(ngModel)]="pharmaciesInfo.emailId"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="whatsAppNumber"
+                  placeholder="WhatsApp Number"
+                  [(ngModel)]="pharmaciesInfo.whatsAppNumber"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="website"
+                  placeholder="Website"
+                  [(ngModel)]="pharmaciesInfo.website"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="twitterLink"
+                  placeholder="Twitter Link"
+                  [(ngModel)]="pharmaciesInfo.socialMediaLinks.twitter"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="facebookLink"
+                  placeholder="Facebook Link"
+                  [(ngModel)]="pharmaciesInfo.socialMediaLinks.facebook"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="instagramLink"
+                  placeholder="Instagram Link"
+                  [(ngModel)]="pharmaciesInfo.socialMediaLinks.instagram"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="whatsAppLink"
+                  placeholder="WhatsApp Link"
+                  [(ngModel)]="pharmaciesInfo.socialMediaLinks.whatsApp"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="hoursOfOperation"
+                  placeholder="Hours Of Operation"
+                  [(ngModel)]="pharmaciesInfo.hoursOfOperation"
+                />
+              </div>
+            <div class="form-group">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                (click)="onClickSavePharmacies(pharmaciesIdForm)"
+              >
+              {{pharmaciesId ? 'Edit' : 'Add'}} Pharmacies
+              </button>
+            </div>
+          </form>
+    </div>
+  </div>
+  <ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+  
+>  <ng-container
+    *ngIf="(pharmaciesIdForm.submitted || control.dirty || control.touched) && control.hasError(validation)"
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+
+

@@ -1,0 +1,98 @@
+
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+      <div class="card-title">
+        <h3 class="card-label">{{midwifesId ? 'Edit' : 'Add'}} MidWifes</h3>
+      </div>
+    </div>
+    <div class="card-body">
+
+        <form novalidate #MidWifesForm="ngForm">
+
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                #name="ngModel"
+                [(ngModel)]="midWifesInfo.name"
+              />
+              <ng-container
+              [ngTemplateOutlet]="formError"
+              [ngTemplateOutletContext]="{
+                validation: 'required',
+                message: 'MidWife Name is required',
+                control: name
+              }"
+            ></ng-container>
+            </div>
+            <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="address"
+                  placeholder="address"
+                  [(ngModel)]="midWifesInfo.address"
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="contactNumber"
+                  placeholder="Contact Number"
+                  [(ngModel)]="midWifesInfo.contactNumber"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="emailId"
+                  placeholder="Email Id"
+                  [(ngModel)]="midWifesInfo.emailId"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="whatsAppNumber"
+                  placeholder="whatsApp Number"
+                  [(ngModel)]="midWifesInfo.whatsAppNumber"
+                />
+              </div>
+            <div class="form-group">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                (click)="onClickSaveMidWifes(MidWifesForm)"
+              >
+              {{midwifesId ? 'Edit' : 'Add'}} MidWifes
+              </button>
+            </div>
+          </form>
+    </div>
+  </div>
+  <ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+  
+>  <ng-container
+    *ngIf="(MidWifesForm.submitted || control.dirty || control.touched) && control.hasError(validation)"
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+

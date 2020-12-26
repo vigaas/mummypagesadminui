@@ -1,0 +1,48 @@
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Category List</h3>
+    </div>
+    <div class="card-toolbar">
+      <a type="button" class="btn btn-primary" [routerLink]="['/category/add']"
+        >New Category</a
+      >
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive angular-bootstrap-table">
+      <table
+        class="table table-head-custom table-vertical-center overflow-hidden"
+      >
+        <thead>
+          <th>
+            Title
+          </th>
+          <th>
+            Position
+          </th>
+          <th>
+            Date
+          </th>
+          <th>ACTIONS</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categoryItem of apiData.categoryData">
+            <td>
+              {{ categoryItem.name }}
+            </td>
+            <td>{{ categoryItem.number }}</td>
+            <td>{{ categoryItem.createdAt | date: "dd/MM/yyyy" }}</td>
+            <td>
+              <a [routerLink]="['/category/edit', categoryItem._id]">Edit</a>
+              <span> | </span>
+              <a role="button" [routerLink]="" (click)="deleteCategory(categoryItem._id)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+  </div>
+</div>

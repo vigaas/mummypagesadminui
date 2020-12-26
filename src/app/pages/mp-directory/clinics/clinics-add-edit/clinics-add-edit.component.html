@@ -1,0 +1,200 @@
+
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">{{clinicsId ? 'Edit' : 'Add'}} Clinics</h3>
+    </div>
+  </div>
+  <div class="card-body">
+
+      <form novalidate #clinicsEditForm="ngForm">
+
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              #name="ngModel"
+              [(ngModel)]="clinicInfo.organizationName"
+            />
+            <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Organization Name is required',
+              control: name
+            }"
+          ></ng-container>
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="description"
+              placeholder="Name"
+              required
+              #description="ngModel"
+              [(ngModel)]="clinicInfo.description"
+            />
+            <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'description Name is required',
+              control: description
+            }"
+          ></ng-container>
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="doctorName"
+              placeholder="Doctor Name"
+              required
+              #doctorName="ngModel"
+              [(ngModel)]="clinicInfo.doctorName"
+            />
+            <ng-container
+            [ngTemplateOutlet]="formError"
+            [ngTemplateOutletContext]="{
+              validation: 'required',
+              message: 'Doctor Name is required',
+              control: doctorName
+            }"
+          ></ng-container>
+          </div>
+          <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="address"
+                placeholder="address"
+                [(ngModel)]="clinicInfo.address"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="contactNumber"
+                placeholder="Contact Number"
+                [(ngModel)]="clinicInfo.contactNumber"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="emailId"
+                placeholder="Email Id"
+                [(ngModel)]="clinicInfo.emailId"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="whatsAppNumber"
+                placeholder="WhatsApp Number"
+                [(ngModel)]="clinicInfo.whatsAppNumber"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="website"
+                placeholder="Website"
+                [(ngModel)]="clinicInfo.website"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="twitterLink"
+                placeholder="Twitter Link"
+                [(ngModel)]="clinicInfo.socialMediaLinks.twitter"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="facebookLink"
+                placeholder="Facebook Link"
+                [(ngModel)]="clinicInfo.socialMediaLinks.facebook"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="instagramLink"
+                placeholder="Instagram Link"
+                [(ngModel)]="clinicInfo.socialMediaLinks.instagram"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="whatsAppLink"
+                placeholder="WhatsApp Link"
+                [(ngModel)]="clinicInfo.socialMediaLinks.whatsApp"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="hoursOfOperation"
+                placeholder="Hours Of Operation"
+                [(ngModel)]="clinicInfo.hoursOfOperation"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                name="specialistIn"
+                placeholder="specialistIn"
+                [(ngModel)]="clinicInfo.specialistIn"
+              />
+            </div>
+          <div class="form-group">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="onClickSaveClinics(clinicsEditForm)"
+            >
+            {{clinicsId ? 'Edit' : 'Add'}} Clinics
+            </button>
+          </div>
+        </form>
+  </div>
+</div>
+<ng-template
+#formError
+let-control="control"
+let-message="message"
+let-validation="validation"
+
+>  <ng-container
+  *ngIf="(clinicsEditForm.submitted || control.dirty || control.touched) && control.hasError(validation)"
+>
+  <div class="fv-plugins-message-container">
+    <div class="fv-help-block">
+      {{ message }}
+    </div>
+  </div>
+</ng-container>
+</ng-template>
+
+
+
