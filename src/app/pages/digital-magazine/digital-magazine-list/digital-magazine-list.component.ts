@@ -12,10 +12,11 @@ export class DigitalMagazineListComponent implements OnInit {
   constructor(public apiservice: ApiserviceService) { }
 
   ngOnInit(): void {
-    this._getDigitalMagazines();
+    this.getDigitalMagazines();
   }
 
-  public _getDigitalMagazines(): void {
+  public getDigitalMagazines(): void {
+
     this.apiservice
       .apigetcall('magazines', {})
       .subscribe(resp => {
@@ -48,7 +49,7 @@ export class DigitalMagazineListComponent implements OnInit {
       .apideletecall(`magazines/${id}`, {})
         .subscribe(resp => {
           if (resp) {
-            this._getDigitalMagazines();
+            this.getDigitalMagazines();
             Swal.fire(
               'Deleted!',
               'Your file has been deleted.',

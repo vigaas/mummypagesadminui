@@ -59,6 +59,7 @@ export class ApiserviceService {
     const endpoint = environment.apiUrl + url;
     return this.http.delete<any>(endpoint, params).pipe(
       map((responses: any) => {
+        console.log('responses', responses);
         return responses;
       }),
       catchError(err => {

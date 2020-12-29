@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from '../../../modules/auth/_services/apiservice.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-category-list',
@@ -29,14 +30,32 @@ export class CategoryListComponent implements OnInit {
       });
   }
 
-  public deleteCategory(categoryId: string) {
-    this.apiservice
-      .apideletecall(`category/${categoryId}`, {})
-      .subscribe(resp => {
-        if (resp) {
-        this.getCategory();
+  public deleteCategory(id: string) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiservice
+      .apideletecall(`category/${id}`, {})
+        .subscribe(resp => {
+          if (resp) {
+            this.getCategory();
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            );
         }
       });
+      }
+    });
   }
+
 
 }
