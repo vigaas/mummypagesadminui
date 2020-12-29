@@ -1,1 +1,51 @@
-<p>digital-magazine-list works!</p>
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">Digital Magazine List</h3>
+        </div>
+        <div class="card-toolbar">
+            <a type="button" class="btn btn-primary" [routerLink]="['/digital-magazine/add']">New Digital Magazine</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive angular-bootstrap-table">
+            <table class="table table-head-custom table-vertical-center overflow-hidden">
+                <thead>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Describtion
+                    </th>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Document
+                    </th>
+                    <th>ACTIONS</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="
+            let magazineItem of apiData.digitalMagazineData
+          ">
+                        <td>
+                            {{ magazineItem.title }}
+                        </td>
+                        <td>{{ magazineItem.description | slice:0:60 }}{{ magazineItem.description.length >=60 ? '...' :'' }}
+                        </td>
+                        <td> <a><img src="{{ magazineItem.image ? magazineItem.image : 'assets/media/images/digital-img-1.PNG'}}"
+                                    alt="digital-img-1" class="dig-mag-img-li" /></a></td>
+                        <td> <a *ngIf="magazineItem.downloadLink" target="_black" href="{{ magazineItem.downloadLink }}" download>download pdf</a></td>
+                        <td><a [routerLink]="['/digital-magazine/edit',magazineItem.id]">Edit</a>
+                            <span> | </span>
+                            <a role="button" [routerLink]="" (click)="deletePharmacies(magazineItem.id)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end: Table -->
+    </div>
+</div>
