@@ -33,6 +33,11 @@ const routes: Routes = [
           import('./mp-directory/mp-directory.module').then((m) => m.MpDirectoryModule),
       },
       {
+        path: 'digital-magazine',
+        loadChildren: () =>
+          import('./digital-magazine/digital-magazine.module').then((m) => m.DigitalMagazineModule),
+      },
+      {
         path: '',
         redirectTo: 'article',
         pathMatch: 'full',

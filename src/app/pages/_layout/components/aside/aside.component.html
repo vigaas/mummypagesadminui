@@ -2,7 +2,7 @@
 <div class="brand flex-column-auto" id="kt_brand" [ngClass]="brandClasses">
   <!--begin::Logo-->
   <a routerLink="/" class="brand-logo">
-    <img class ="logo-landing"alt="Logo" [attr.src]="headerLogo" />
+    <img class="logo-landing" alt="Logo" [attr.src]="headerLogo" />
   </a>
   <!--end::Logo-->
 
@@ -83,7 +83,20 @@
         aria-haspopup="true"
         routerLinkActive="menu-item-active"
       >
-        <a class="menu-link" routerLink="/mpdirectory/hospital" routerLinkActive="active">
+        <a class="menu-link" routerLink="/digital-magazine/list" routerLinkActive="active">
+          <span class="menu-text">Digital Magazine</span>
+        </a>
+      </li>
+      <li
+        class="menu-item"
+        aria-haspopup="true"
+        routerLinkActive="menu-item-active"
+      >
+        <a
+          class="menu-link"
+          routerLink="/mpdirectory/hospital"
+          routerLinkActive="active"
+        >
           <span class="menu-text">Hospital</span>
         </a>
       </li>
@@ -92,7 +105,11 @@
         aria-haspopup="true"
         routerLinkActive="menu-item-active"
       >
-        <a class="menu-link" routerLink="/mpdirectory/doctor" routerLinkActive="active">
+        <a
+          class="menu-link"
+          routerLink="/mpdirectory/doctor"
+          routerLinkActive="active"
+        >
           <span class="menu-text">Doctor</span>
         </a>
       </li>
@@ -101,7 +118,11 @@
         aria-haspopup="true"
         routerLinkActive="menu-item-active"
       >
-        <a class="menu-link" routerLink="/mpdirectory/midwifes" routerLinkActive="active">
+        <a
+          class="menu-link"
+          routerLink="/mpdirectory/midwifes"
+          routerLinkActive="active"
+        >
           <span class="menu-text">MidWifes</span>
         </a>
       </li>
@@ -110,7 +131,11 @@
         aria-haspopup="true"
         routerLinkActive="menu-item-active"
       >
-        <a class="menu-link" routerLink="/mpdirectory/clinics" routerLinkActive="active">
+        <a
+          class="menu-link"
+          routerLink="/mpdirectory/clinics"
+          routerLinkActive="active"
+        >
           <span class="menu-text">Medical Clinics</span>
         </a>
       </li>
@@ -119,11 +144,15 @@
         aria-haspopup="true"
         routerLinkActive="menu-item-active"
       >
-        <a class="menu-link" routerLink="/mpdirectory/pharmacies" routerLinkActive="active">
+        <a
+          class="menu-link"
+          routerLink="/mpdirectory/pharmacies"
+          routerLinkActive="active"
+        >
           <span class="menu-text">Pharmacies</span>
         </a>
       </li>
-      
+
       <!-- end::1 Level -->
     </ul>
     <!-- end::Menu Nav -->
