@@ -11,7 +11,7 @@ export const DefaultLayoutConfig = {
       theme: {
         base: {
           white: '#ffffff',
-          primary: '#3699FF',
+          primary: '#d25988',
           secondary: '#E5EAEE',
           success: '#1BC5BD',
           info: '#8950FC',
@@ -219,7 +219,7 @@ export const DefaultLayoutConfig = {
 
     // Languages
     languages: {
-      display: true,
+      display: false,
     },
 
     // Cart

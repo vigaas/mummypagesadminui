@@ -56,9 +56,9 @@
             id="customFile"
             name="thumbnailImage"
             #thumbnailImage="ngModel"
-            [(ngModel)]="digitalMagazineFormFields.thumbnailImage"
+            [(ngModel)]="thumbnailImages"
             [accept]="supportedImageFiles"
-            required
+            [required]="!digitalMagazineId"
             (change)="onChangeThumbnailFile($event.target.files)"
           />
           <label class="custom-file-label" for="customFile"
@@ -82,9 +82,9 @@
             id="customFile"
             name="magazinePDF"
             #magazinePDF="ngModel"
-            [(ngModel)]="digitalMagazineFormFields.magazinePDF"
+            [(ngModel)]="magazinePDFs"
             [accept]="supportedFiles"
-            required
+            [required]="!digitalMagazineId"
             (change)="onChangeMagazineFile($event.target.files)"
           />
           <label class="custom-file-label" for="customFile"

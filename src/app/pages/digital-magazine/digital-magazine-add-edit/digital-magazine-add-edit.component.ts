@@ -15,6 +15,8 @@ export class DigitalMagazineAddEditComponent implements OnInit {
     magazinePDF: File,
     thumbnailImage: File
   };
+  public magazinePDFs;
+  public thumbnailImages;
   public supportedFiles: string[] = ['.pdf'];
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
 
@@ -123,6 +125,8 @@ export class DigitalMagazineAddEditComponent implements OnInit {
       .subscribe(resp => {
         if (resp) {
           this.digitalMagazineFormFields = resp;
+          this.thumbnailImages = this.digitalMagazineFormFields.thumbnailImage;
+          this.magazinePDFs = this.digitalMagazineFormFields.magazinePDF;
         }
       });
   }

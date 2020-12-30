@@ -62,6 +62,7 @@
           #Occupation="ngModel"
           placeholder="Article Type"
           [(ngModel)]="articleFormFields.type"
+          (change)="changeImageUpload()"
           required
         >
           <option selected class="hidden" disabled value="null">
@@ -150,6 +151,58 @@
           control: description
         }"
       ></ng-container>
+      </div>
+      <div class="form-group" *ngIf="articleFormFields.type==='TEXT'">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="customFile"
+            name="featuredImage"
+            #featuredImage="ngModel"
+            [(ngModel)]="featuredImages"
+            [accept]="supportedImageFiles"
+            (change)="onChangeThumbnailFile($event.target.files)"
+          />
+          <label class="custom-file-label" for="customFile"
+            >Choose featuredImage
+          </label>
+        </div>
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'FeaturedImage is required',
+            control: featuredImage
+          }"
+        ></ng-container>
+      </div>
+      <div class="form-group" *ngIf="articleFormFields.type==='IMAGES'">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="customFile"
+            name="articleImage"
+            #articleImage="ngModel"
+            [(ngModel)]="articleImages"
+            [accept]="supportedImageFiles"
+            [required]="articleFormFields.type==='IMAGES'"
+            multiple
+            (change)="onChangearticleImagesFile($event.target.files)"
+          />
+          <label class="custom-file-label" for="customFile"
+            >Choose ArticleImages
+          </label>
+        </div>
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'ArticleImages is required',
+            control: articleImage
+          }"
+        ></ng-container>
       </div>
       <div class="form-group">
         <button

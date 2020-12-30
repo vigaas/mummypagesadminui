@@ -20,9 +20,6 @@
             Title
           </th>
           <th>
-            Position
-          </th>
-          <th>
             Date
           </th>
           <th>ACTIONS</th>
@@ -32,7 +29,6 @@
             <td>
               {{ categoryItem.name }}
             </td>
-            <td>{{ categoryItem.number }}</td>
             <td>{{ categoryItem.createdAt | date: "dd/MM/yyyy" }}</td>
             <td>
               <a [routerLink]="['/category/edit', categoryItem._id]">Edit</a>
