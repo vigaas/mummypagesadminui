@@ -39,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'article',
+        redirectTo: 'auth/login',
         pathMatch: 'full',
       },
       {

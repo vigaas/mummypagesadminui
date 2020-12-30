@@ -1,1 +1,260 @@
-<p>user-add-edit works!</p>
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-body">
+        <div>
+            
+        </div>
+<!--       <form novalidate #userForm="ngForm">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="addressLine1"
+            #title="ngModel"
+            placeholder="Favorite Article Categories"
+            required
+            [(ngModel)]="userData.favoriteArticleCategories"
+            readonly
+          />
+        </div>
+        <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="addressLine1"
+              #addressLine1="ngModel"
+              placeholder="AddressLine 1"
+              required
+              [(ngModel)]="userData.addressLine1"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="addressLine2"
+              #addressLine2="ngModel"
+              placeholder="Address Line 2"
+              required
+              [(ngModel)]="userData.addressLine2"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="city"
+              #city="ngModel"
+              placeholder="City"
+              required
+              [(ngModel)]="userData.city"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="state"
+              #state="ngModel"
+              placeholder="Favorite Article Categories"
+              required
+              [(ngModel)]="userData.state"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="occupation"
+              #occupation="ngModel"
+              placeholder="Occupation"
+              required
+              [(ngModel)]="userData.occupation"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="dateOfBirth"
+              #dateOfBirth="ngModel"
+              placeholder="Date Of Birth"
+              required
+              [(ngModel)]="userData.dateOfBirth"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="addressLine1"
+              #title="ngModel"
+              placeholder="Favorite Article Categories"
+              required
+              [(ngModel)]="userData.favoriteArticleCategories"
+              readonly
+            />
+          </div>
+          <div class="form-group" *ngFor="
+          let child of userData.children
+        ">
+        <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="childrenName1"
+              #childrenName1="ngModel"
+              placeholder="children Name"
+              required
+              [(ngModel)]="child.name"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="childgender"
+              #childgender="ngModel"
+              placeholder="children gender"
+              required
+              [(ngModel)]="child.gender"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="childdob"
+              #childdob="ngModel"
+              placeholder="children Date of Birth"
+              required
+              [(ngModel)]="child.dateOfBirth"
+              readonly
+            />
+          </div>
+          </div>
+   
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="husbandName"
+              #husbandName="ngModel"
+              placeholder="Husband Name"
+              required
+              [(ngModel)]="userData.husbandName"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="husbandOccupation"
+              #husbandOccupation="ngModel"
+              placeholder="Husband Occupation"
+              required
+              [(ngModel)]="userData.husbandOccupation"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="husbandDOB"
+              #husbandDOB="ngModel"
+              placeholder="husband DOB"
+              required
+              [(ngModel)]="userData.husbandDOB"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="userMobileNo"
+              #userMobileNo="ngModel"
+              placeholder="Is Mobile Number Verified"
+              required
+              [(ngModel)]="userData.iamUserDetails.isMobileNumberVerified"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="addressLine1"
+              #title="ngModel"
+              placeholder="Is Email Verified"
+              required
+              [(ngModel)]="userData.iamUserDetails.isEmailVerified"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="userName"
+              #userName="ngModel"
+              placeholder="User Name"
+              required
+              [(ngModel)]="{{userData.iamUserDetails.firstName}} {{userData.iamUserDetails.middleName}} {{userData.iamUserDetails.lastName}}"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="userEmail"
+              #userEmail="ngModel"
+              placeholder="User Email"
+              required
+              [(ngModel)]="userData.iamUserDetails.email"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="addressLine1"
+              #title="ngModel"
+              placeholder="User Mobile Number"
+              required
+              [(ngModel)]="userData.iamUserDetails.mobileNumber"
+              readonly
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              name="country"
+              #country="ngModel"
+              placeholder="Country"
+              required
+              [(ngModel)]="userData.iamUserDetails.country"
+              readonly
+            />
+          </div>
+  
+
+      </form> -->
+    </div>
+  </div>
+  
+
+  
