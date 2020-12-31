@@ -29,10 +29,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.returnUrl = '/dashboard';
-
-    if (this.apiservice.gettoken()) {
-      this.router.navigate([this.returnUrl]);
-    }
   }
 
   ngOnInit(): void {
