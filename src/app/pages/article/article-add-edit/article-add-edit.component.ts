@@ -39,7 +39,8 @@ export class ArticleAddEditComponent implements OnInit {
         name: 'Image',
         apiKey: 'IMAGES'
       }
-    ]
+    ],
+    language: [{langId: 'ENGLISH', lang : 'ENGLISH'}, {langId: 'TAMIL', lang : 'TAMIL'}, {langId: 'SHINHALA', lang : 'SHINHALA'} ]
   };
   constructor(
     public apiservice: ApiserviceService,
@@ -131,6 +132,7 @@ export class ArticleAddEditComponent implements OnInit {
         : this.articleFormFields.tags
     );
     formData.append('categoryId', this.articleFormFields.categoryId);
+    formData.append('articleLanguage', this.articleFormFields.language);
     formData.append('publishType', this.articleFormFields.publishType);
     if (this.articleFormFields.type === 'TEXT') {
       formData.append('featuredImage', this.articleFormFields.featuredImage);
