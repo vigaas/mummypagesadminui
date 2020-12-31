@@ -7,12 +7,12 @@ import { ApiserviceService } from '../_services/apiservice.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
   defaultAuth: any = {
     email: '',
-    password: '',
+    password: ''
   };
   loginForm: FormGroup;
   hasError: boolean;
@@ -28,14 +28,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router
   ) {
+    this.returnUrl = '/dashboard';
+
+    if (this.apiservice.gettoken()) {
+      this.router.navigate([this.returnUrl]);
+    }
   }
 
   ngOnInit(): void {
     this.initForm();
-    // get return url from route parameters or default to '/'
-    this.returnUrl =
-        this.route.snapshot.queryParams['returnUrl'.toString()] || '/';
-    }
+  }
 
   // convenience getter for easy access to form fields
   get f() {
@@ -50,17 +52,17 @@ export class LoginComponent implements OnInit, OnDestroy {
           Validators.required,
           Validators.email,
           Validators.minLength(3),
-          Validators.maxLength(320), // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
-        ]),
+          Validators.maxLength(320) // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
+        ])
       ],
       password: [
         this.defaultAuth.password,
         Validators.compose([
           Validators.required,
           Validators.minLength(3),
-          Validators.maxLength(100),
-        ]),
-      ],
+          Validators.maxLength(100)
+        ])
+      ]
     });
   }
 
@@ -68,15 +70,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.hasError = false;
     this.unsubscribe.push();
     if (this.loginForm.valid) {
-      this.apiservice.login(this.loginForm.value).subscribe(
-        results => {
-          this.router.navigate(['/article']);
-        }
-      );
+      this.apiservice.login(this.loginForm.value).subscribe(results => {
+        this.router.navigate([this.returnUrl]);
+      });
     }
   }
 
   ngOnDestroy() {
-    this.unsubscribe.forEach((sb) => sb.unsubscribe());
+    this.unsubscribe.forEach(sb => sb.unsubscribe());
   }
 }
