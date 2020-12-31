@@ -74,6 +74,10 @@ $topbar-shadow-mobile: 0px 0px 40px 0px rgba(82,63,105, 0.1);
 							color: $menu-link-color;
 							font-weight: 500;
 						}
+						.menu-text-sub{
+							color: $menu-link-color;
+							font-weight: 500;
+						}
 
 						.menu-arrow {
 							color: $menu-link-color;
@@ -113,6 +117,9 @@ $topbar-shadow-mobile: 0px 0px 40px 0px rgba(82,63,105, 0.1);
 							background-color: $menu-link-bg-hover;
 
 							.menu-text {
+								color: $menu-link-color-hover;
+							}
+							.menu-text-sub {
 								color: $menu-link-color-hover;
 							}
 

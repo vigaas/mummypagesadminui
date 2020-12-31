@@ -14,6 +14,7 @@ import { MpDirectoryComponent } from './mp-directory.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SettingsComponent } from './settings/settings.component';
+import { SettingLogoComponent } from './settings/setting-logo/setting-logo.component';
 
 const routes: Routes = [
   {
@@ -84,6 +85,10 @@ const routes: Routes = [
         path: 'language',
         component: SettingsComponent
       },
+      {
+        path: 'logo',
+        component: SettingLogoComponent
+      },
       { path: '', redirectTo: 'hospital', pathMatch: 'full' },
       { path: '**', redirectTo: 'hospital', pathMatch: 'full' }
     ]
@@ -93,7 +98,7 @@ const routes: Routes = [
 
 @NgModule({
 // tslint:disable-next-line: max-line-length
-  declarations: [MpDirectoryComponent, HospitalComponent, HospitalAddEditComponent, DoctorComponent, DoctorAddEditComponent, MidwifesComponent, MidwifesAddEditComponent, ClinicsComponent, ClinicsAddEditComponent, PharmaciesComponent, PharmaciesAddEditComponent, SettingsComponent],
+  declarations: [MpDirectoryComponent, HospitalComponent, HospitalAddEditComponent, DoctorComponent, DoctorAddEditComponent, MidwifesComponent, MidwifesAddEditComponent, ClinicsComponent, ClinicsAddEditComponent, PharmaciesComponent, PharmaciesAddEditComponent, SettingsComponent, SettingLogoComponent],
   imports: [
     CommonModule,
     FormsModule,

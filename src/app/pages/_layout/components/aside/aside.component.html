@@ -159,11 +159,36 @@
     >
       <a
         class="menu-link"
-        routerLink="/mpdirectory/language"
         routerLinkActive="active"
       >
-        <span class="menu-text">Settings</span>
-      </a>
+      <span class="menu-text">Settings</span>
+    </a>
+      <ul>
+        <li 
+        class="menu-item"
+        aria-haspopup="true"
+        routerLinkActive="menu-item-active">
+          <a
+          class="menu-link"
+          routerLink="/mpdirectory/language"
+          routerLinkActive="active"
+        >
+        <span class="menu-text-sub">Change Article Language</span>
+        </a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a
+          class="menu-link"
+          routerLink="/mpdirectory/logo"
+          routerLinkActive="active"
+        >
+        <span class="menu-text-sub">Change logo</span>
+        </a>
+        </li>
+      </ul>
+      
     </li>
 
       <!-- end::1 Level -->
