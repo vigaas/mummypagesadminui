@@ -1,1 +1,45 @@
-<p>user-list works!</p>
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">User List</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive angular-bootstrap-table">
+            <table class="table table-head-custom table-vertical-center overflow-hidden">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Email Id
+                    </th>
+                    <th>
+                        Occupation
+                    </th>
+                    <th>ACTIONS</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="
+            let userItem of apiData.userData
+          ">
+                        <td>
+                            {{ userItem.iamUserDetails.firstName }} {{ userItem.iamUserDetails.middleName }} {{ userItem.iamUserDetails.lastName }}
+                        </td>
+                        <td>{{ userItem.iamUserDetails.country }}
+                        </td>
+                        <td> {{ userItem.iamUserDetails.email }}</td>
+                        <td> {{ userItem.occupation }}</td>
+                        <td><a [routerLink]="['/user/edit',userItem.id]">Detail</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end: Table -->
+    </div>
+</div>

@@ -20,7 +20,7 @@
         <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/user" role="button">
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
+              >{{apiData.count.usersCount}}</span
             >
           </div>
           <a  class="text-dark-75 font-weight-bold font-size-h6"
@@ -31,7 +31,7 @@
         <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/category/list" role="button">
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
+              >{{apiData.count.categoriesCount}}</span
             >
           </div>
           <a  class="text-dark-75 font-weight-bold font-size-h6"
@@ -41,22 +41,12 @@
         <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/article" role="button">
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
+              >{{apiData.count.articlesCount}}</span
             >
           </div>
           <a  class="text-dark-75 font-weight-bold font-size-h6"
             >Articles</a
           >
-        </div>
-        <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/digital-magazine/list" role="button">
-          <div class="font-weight-bold text-muted font-size-sm">
-            <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
-            >
-          </div>
-          <a  class="text-dark-75 font-weight-bold font-size-h6"
-            >Digital Magazine
-          </a>
         </div>
       </div>
       <!--end::Row-->
@@ -65,7 +55,7 @@
         <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/hospital" role="button">
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
+              >{{apiData.count.hospitalsCount}}</span
             >
           </div>
           <a  class="text-dark-75 font-weight-bold font-size-h6"
@@ -75,7 +65,7 @@
         <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/doctor" role="button">
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
+              >{{apiData.count.doctorsCount}}</span
             >
           </div>
           <a  class="text-dark-75 font-weight-bold font-size-h6"
@@ -85,25 +75,49 @@
         <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/clinics" role="button">
           <div class="font-weight-bold text-muted font-size-sm">
             <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
+              >{{apiData.count.clinicsCount}}</span
             >
           </div>
           <a  class="text-dark-75 font-weight-bold font-size-h6"
             >Medical Clinics</a
           >
         </div>
-        <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/midwifes" role="button">
-          <div class="font-weight-bold text-muted font-size-sm">
-            <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
-              >67</span
-            >
-          </div>
-          <a  class="text-dark-75 font-weight-bold font-size-h6"
-            >MidWifes</a
-          >
-        </div>
       </div>
       <!--end::Row-->
+           <!--begin::Row-->
+           <div class="row m-0">
+            <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/hospital" role="button">
+              <div class="font-weight-bold text-muted font-size-sm">
+                <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
+                  >{{apiData.count.magazinesCount}}</span
+                >
+              </div>
+              <a  class="text-dark-75 font-weight-bold font-size-h6"
+                >Magazines
+              </a>
+            </div>
+            <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/doctor" role="button">
+              <div class="font-weight-bold text-muted font-size-sm">
+                <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
+                  >{{apiData.count.midwifesCount}}</span
+                >
+              </div>
+              <a  class="text-dark-75 font-weight-bold font-size-h6"
+                >Midwives</a
+              >
+            </div>
+            <div class="col bg-white px-6 py-8 rounded-xl mr-7 mb-7" routerLink="/mpdirectory/clinics" role="button">
+              <div class="font-weight-bold text-muted font-size-sm">
+                <span class="text-dark-75 font-size-h2 font-weight-bolder mr-2"
+                  >{{apiData.count.pharmaciesCount}}</span
+                >
+              </div>
+              <a  class="text-dark-75 font-weight-bold font-size-h6"
+                >Pharmacies</a
+              >
+            </div>
+          </div>
+          <!--end::Row--> 
     </div>
     <!--end::Stats-->
   </div>

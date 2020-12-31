@@ -40,7 +40,12 @@
 </ng-container>
 
 <ng-container *ngIf="extrasLanguagesDisplay">
-  <app-language-selector style="margin-top: 10px;"></app-language-selector>
+    <div class="mt-3" style="float : right">
+        <button class="btn btn-primary" (click)="auth.logout()">Logout</button>
+      </div>
+  <!-- <app-language-selector style="margin-top: 10px;"></app-language-selector> -->
 </ng-container>
+
+
 
 <!--end::Topbar-->

@@ -33,7 +33,7 @@ export class TopbarComponent implements OnInit, AfterViewInit {
   extrasUserDisplay: boolean;
   extrasUserLayout: 'offcanvas' | 'dropdown';
 
-  constructor(private layout: LayoutService, private auth: ApiserviceService) {
+  constructor(private layout: LayoutService, public auth: ApiserviceService) {
     // this.user$ = this.auth.currentUserSubject.asObservable();
   }
 

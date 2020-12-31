@@ -219,7 +219,7 @@ export const DefaultLayoutConfig = {
 
     // Languages
     languages: {
-      display: false,
+      display: true,
     },
 
     // Cart
