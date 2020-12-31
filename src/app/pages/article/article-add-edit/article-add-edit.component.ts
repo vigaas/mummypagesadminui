@@ -15,7 +15,8 @@ export class ArticleAddEditComponent implements OnInit {
     type: 'TEXT',
     publishType: null,
     featuredImage: File,
-    articleImages: []
+    articleImages: [],
+    articleLanguage : null
   };
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
   public featuredImages: any = '';
@@ -132,7 +133,7 @@ export class ArticleAddEditComponent implements OnInit {
         : this.articleFormFields.tags
     );
     formData.append('categoryId', this.articleFormFields.categoryId);
-    formData.append('articleLanguage', this.articleFormFields.language);
+    formData.append('articleLanguage', this.articleFormFields.articleLanguage);
     formData.append('publishType', this.articleFormFields.publishType);
     if (this.articleFormFields.type === 'TEXT') {
       formData.append('featuredImage', this.articleFormFields.featuredImage);

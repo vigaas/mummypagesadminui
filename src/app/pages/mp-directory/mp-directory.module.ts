@@ -13,6 +13,7 @@ import { PharmaciesAddEditComponent } from './pharmacies/pharmacies-add-edit/pha
 import { MpDirectoryComponent } from './mp-directory.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,10 @@ const routes: Routes = [
         path: 'pharmacies/edit/:pharmaciesId',
         component: PharmaciesAddEditComponent
       },
+       {
+        path: 'language',
+        component: SettingsComponent
+      },
       { path: '', redirectTo: 'hospital', pathMatch: 'full' },
       { path: '**', redirectTo: 'hospital', pathMatch: 'full' }
     ]
@@ -88,7 +93,7 @@ const routes: Routes = [
 
 @NgModule({
 // tslint:disable-next-line: max-line-length
-  declarations: [MpDirectoryComponent, HospitalComponent, HospitalAddEditComponent, DoctorComponent, DoctorAddEditComponent, MidwifesComponent, MidwifesAddEditComponent, ClinicsComponent, ClinicsAddEditComponent, PharmaciesComponent, PharmaciesAddEditComponent],
+  declarations: [MpDirectoryComponent, HospitalComponent, HospitalAddEditComponent, DoctorComponent, DoctorAddEditComponent, MidwifesComponent, MidwifesAddEditComponent, ClinicsComponent, ClinicsAddEditComponent, PharmaciesComponent, PharmaciesAddEditComponent, SettingsComponent],
   imports: [
     CommonModule,
     FormsModule,
