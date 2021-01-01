@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiserviceService } from '../../../modules/auth/_services/apiservice.service';
 import Swal from 'sweetalert2';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-article-add-edit',
@@ -12,12 +13,57 @@ export class ArticleAddEditComponent implements OnInit {
   public articleId = this.activeroute.snapshot.paramMap.get('articleId');
   public articleFormFields: any = {
     categoryId: null,
-    type: 'TEXT',
+    type: null,
     publishType: null,
     featuredImage: File,
     articleImages: [],
     articleLanguage : null
   };
+  public editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '300px',
+    minHeight: '300px',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      {class: 'arial', name: 'Arial'},
+      {class: 'times-new-roman', name: 'Times New Roman'},
+      {class: 'calibri', name: 'Calibri'},
+      {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+    ],
+    customClasses: [
+    {
+      name: 'quote',
+      class: 'quote',
+    },
+    {
+      name: 'redText',
+      class: 'redText'
+    },
+    {
+      name: 'titleText',
+      class: 'titleText',
+      tag: 'h1',
+    },
+  ],
+  // uploadUrl: 'v1/image',
+  uploadWithCredentials: false,
+  sanitize: true,
+  toolbarPosition: 'top',
+  toolbarHiddenButtons: [
+    ['bold', 'italic'],
+    ['fontSize', 'insertImage',
+    'insertVideo', ]
+  ]
+};
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
   public featuredImages: any = '';
   public articleImages: any = '';
@@ -33,11 +79,16 @@ export class ArticleAddEditComponent implements OnInit {
       {
         id: 1,
         name: 'Text',
-        apiKey: 'TEXT'
+        apiKey: 'IMAGES'
       },
       {
         id: 2,
         name: 'Image',
+        apiKey: 'IMAGES'
+      },
+      {
+        id: 3,
+        name: 'Video',
         apiKey: 'IMAGES'
       }
     ],
@@ -78,6 +129,11 @@ export class ArticleAddEditComponent implements OnInit {
 
   public onChangearticleImagesFile(files: FileList): void {
     if (files && files.length > 0) {
+      if (files.length > 10) {
+        Swal.fire('Alert!', 'You can upload upto 10 Images', 'info');
+        this.articleFormFields.articleImages = null;
+        return;
+      }
       // tslint:disable-next-line: prefer-for-of
       for (let index = 0; index < files.length; index++) {
         const fileReader = new FileReader();
@@ -102,12 +158,12 @@ export class ArticleAddEditComponent implements OnInit {
     }
   }
 
-  public changeImageUpload(): void {
-    this.articleFormFields.articleImages = [];
-    this.articleFormFields.featuredImage = null;
-    this.articleImages = null;
-    this.featuredImages = null;
-  }
+  // public changeImageUpload(): void {
+  //   this.articleFormFields.articleImages = [];
+  //   this.articleFormFields.featuredImage = null;
+  //   this.articleImages = null;
+  //   this.featuredImages = null;
+  // }
 
   public onClickSaveArticle(form) {
     if (form.invalid) {
@@ -135,14 +191,10 @@ export class ArticleAddEditComponent implements OnInit {
     formData.append('categoryId', this.articleFormFields.categoryId);
     formData.append('articleLanguage', this.articleFormFields.articleLanguage);
     formData.append('publishType', this.articleFormFields.publishType);
-    if (this.articleFormFields.type === 'TEXT') {
-      formData.append('featuredImage', this.articleFormFields.featuredImage);
-    }
-    if (this.articleFormFields.type === 'IMAGES') {
-      this.articleFormFields.articleImages.forEach(element => {
+    formData.append('featuredImage', this.articleFormFields.featuredImage);
+    this.articleFormFields.articleImages.forEach(element => {
         formData.append('articleImages', element);
       });
-    }
     if (this.articleId) {
       this.apiservice
         .apiputcall(`articles/${this.articleId}`, formData)

@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticleAddEditComponent } from './article-add-edit/article-add-edit.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 const routes: Routes = [
   {
@@ -43,6 +44,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularEditorModule,
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule],
