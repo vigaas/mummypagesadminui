@@ -29,6 +29,28 @@ export class ArticleListComponent implements OnInit {
       });
   }
 
+  public approveArticle(articleId: string, isApproved: boolean){
+    if (isApproved){
+      Swal.fire(
+        'Already Approved!',
+        'This Article has been approved already'
+      );
+    }else{
+      this.apiservice
+      .apiputcall(`articles/approve/${articleId}`, {})
+      .subscribe(resp => {
+        if (resp) {
+          this.getArticle();
+          Swal.fire(
+            'Approved!',
+            'Your Article has been approved.',
+            'success'
+          );
+        }
+      });
+    }
+  }
+
   public deleteArticle(articleId: string) {
     Swal.fire({
       title: 'Are you sure?',
