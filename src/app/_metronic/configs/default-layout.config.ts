@@ -243,7 +243,7 @@ export const DefaultLayoutConfig = {
 
     // Quick Panel
     quickPanel: {
-      display: true,
+      display: false,
       offcanvas: {
         direction: 'right',
       },
