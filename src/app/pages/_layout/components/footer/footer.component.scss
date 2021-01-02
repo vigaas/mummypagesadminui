@@ -1,0 +1,25 @@
+.c2a-section {
+    // padding: 60px 0;
+    background: rgb(196, 87, 145);
+    background: linear-gradient(
+      90deg,
+      rgba(196, 87, 145, 1) 30%,
+      rgba(110, 72, 191, 1) 100%
+    );
+    text-align: center;
+    .link-part {
+      padding-top: 30px;
+      .navbar {
+        .nav-item {
+          display: inline-block;
+          .nav-link {
+            color: #fff;
+            display: inline-block;
+            padding: 10px 20px;
+            font-weight: 500;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }

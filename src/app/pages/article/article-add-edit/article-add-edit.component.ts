@@ -60,7 +60,7 @@ export class ArticleAddEditComponent implements OnInit {
   toolbarPosition: 'top',
   toolbarHiddenButtons: [
     ['bold', 'italic'],
-    ['fontSize', 'insertImage',
+    ['fontSize',
     'insertVideo', ]
   ]
 };
