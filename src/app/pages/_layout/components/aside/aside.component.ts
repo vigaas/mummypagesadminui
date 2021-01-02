@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from '../../../../_mummypage/core';
+import { LayoutService } from '../../../../_metronic/core';
 
 @Component({
   selector: 'app-aside',

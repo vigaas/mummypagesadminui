@@ -12,10 +12,10 @@ import { locale as esLang } from './modules/i18n/vocabs/es';
 import { locale as jpLang } from './modules/i18n/vocabs/jp';
 import { locale as deLang } from './modules/i18n/vocabs/de';
 import { locale as frLang } from './modules/i18n/vocabs/fr';
-import { SplashScreenService } from './_mummypage/partials/layout/splash-screen/splash-screen.service';
+import { SplashScreenService } from './_metronic/partials/layout/splash-screen/splash-screen.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription, Subject } from 'rxjs';
-import { TableExtendedService } from './_mummypage/shared/crud-table';
+import { TableExtendedService } from './_metronic/shared/crud-table';
 import { LoaderService } from './modules/auth/_services/loader.service';
 @Component({
   // tslint:disable-next-line:component-selector

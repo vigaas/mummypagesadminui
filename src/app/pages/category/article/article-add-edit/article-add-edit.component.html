@@ -1,0 +1,255 @@
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">{{ articleId ? "Edit" : "Add" }} Article</h3>
+    </div>
+  </div>
+  <div class="card-body">
+    <form novalidate #airticleForm="ngForm">
+      <div class="form-group">
+        <select
+          class="form-control"
+          name="category"
+          placeholder="Category"
+          #category="ngModel"
+          [(ngModel)]="articleFormFields.categoryId"
+          required
+        >
+          <option selected class="hidden" disabled value="null">
+            Select of Category
+          </option>
+          <option
+            [value]="categoryItem._id"
+            *ngFor="let categoryItem of apiData.categoryData"
+          >
+            {{ categoryItem.name }}
+          </option>
+        </select>
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Category is required',
+            control: category
+          }"
+        ></ng-container>
+      </div>
+      <div class="form-group">
+        <select
+          class="form-control"
+          name="language"
+          placeholder="language"
+          #language="ngModel"
+          [(ngModel)]="articleFormFields.articleLanguage"
+          required
+        >
+          <option selected class="hidden" disabled value="null">
+            Select Language
+          </option>
+          <option
+            [value]="langItem.langId"
+            *ngFor="let langItem of apiData.language"
+          >
+            {{ langItem.lang }}
+          </option>
+        </select>
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'language is required',
+            control: language
+          }"
+        ></ng-container>
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="title"
+          #title="ngModel"
+          placeholder="Article Title"
+          required
+          [(ngModel)]="articleFormFields.title"
+        />
+        <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Article Title is required',
+          control: title
+        }"
+      ></ng-container>
+      </div>
+
+      <div class="form-group">
+        <select
+          class="form-control"
+          name="Occupation"
+          #Occupation="ngModel"
+          placeholder="Article Type"
+          [(ngModel)]="articleFormFields.type"
+          required
+        >
+          <option selected class="hidden" disabled value="null">
+            Select of Article Type
+          </option>
+          <option
+            [value]="typeItem.apiKey"
+            *ngFor="let typeItem of apiData.type"
+          >
+            {{ typeItem.name }}
+          </option>
+        </select>
+        <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Article Type is required',
+          control: Occupation
+        }"
+      ></ng-container>
+      </div>
+      <div class="form-group">
+        <select
+          class="form-control"
+          name="publishType"
+          placeholder="Publish Type"
+          #publishType="ngModel"
+          [(ngModel)]="articleFormFields.publishType"
+          required
+        >
+          <option selected class="hidden" disabled value="null">
+            Select of Publish Type
+          </option>
+          <option
+            [value]="publishTypeItem.apiKey"
+            *ngFor="let publishTypeItem of apiData.publishType"
+          >
+            {{ publishTypeItem.name }}
+          </option>
+        </select>
+        <ng-container
+        [ngTemplateOutlet]="formError"
+        [ngTemplateOutletContext]="{
+          validation: 'required',
+          message: 'Publish Type is required',
+          control: publishType
+        }"
+      ></ng-container>
+      </div>
+
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="tags"
+          placeholder="Tags"
+          required
+          [(ngModel)]="articleFormFields.tags"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          class="form-control"
+          type="text"
+          name="keywords"
+          placeholder="Keywords"
+          required
+          [(ngModel)]="articleFormFields.keywords"
+        />
+      </div>
+      <div class="form-group">
+          <angular-editor [placeholder]="'Enter text here...'" required [config]="editorConfig" name="description"
+          #description="ngModel" [(ngModel)]="articleFormFields.description"></angular-editor>
+          <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'Article Description is required',
+            control: description
+          }"
+        ></ng-container>
+      </div>
+      <div class="form-group">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="customFile"
+            name="featuredImage"
+            #featuredImage="ngModel"
+            [(ngModel)]="featuredImages"
+            required
+            [accept]="supportedImageFiles"
+            (change)="onChangeThumbnailFile($event.target.files)"
+          />
+          <label class="custom-file-label" for="customFile"
+            >Choose featuredImage
+          </label>
+        </div>
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'FeaturedImage is required',
+            control: featuredImage
+          }"
+        ></ng-container>
+      </div>
+      <div class="form-group">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="customFile"
+            name="articleImage"
+            #articleImage="ngModel"
+            [(ngModel)]="articleImages"
+            [accept]="supportedImageFiles"
+            multiple
+            required
+            (change)="onChangearticleImagesFile($event.target.files)"
+          />
+          <label class="custom-file-label" for="customFile"
+            >Choose ArticleImages
+          </label>
+        </div>
+        <ng-container
+          [ngTemplateOutlet]="formError"
+          [ngTemplateOutletContext]="{
+            validation: 'required',
+            message: 'ArticleImages is required',
+            control: articleImage
+          }"
+        ></ng-container>
+      </div>
+      <div class="form-group">
+        <button
+          class="btn btn-primary"
+          (click)="onClickSaveArticle(airticleForm)"
+          type="submit"
+        >
+          {{ articleId ? "Edit" : "Add" }} Article
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<ng-template
+  #formError
+  let-control="control"
+  let-message="message"
+  let-validation="validation"
+  
+>  <ng-container
+    *ngIf="(airticleForm.submitted || control.dirty || control.touched) && control.hasError(validation)"
+  >
+    <div class="fv-plugins-message-container">
+      <div class="fv-help-block">
+        {{ message }}
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

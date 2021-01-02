@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './modules/auth/_services/auth.guard';
-import { AuthLoginGuard } from './modules/auth/_services/auth-login.guard';
 
 export const routes: Routes = [
   {
     path: 'auth',
-    canActivate: [AuthLoginGuard],
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },

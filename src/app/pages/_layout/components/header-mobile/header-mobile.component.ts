@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { LayoutService } from '../../../../_mummypage/core';
+import { LayoutService } from '../../../../_metronic/core';
 
 @Component({
   selector: 'app-header-mobile',

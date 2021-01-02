@@ -9,7 +9,7 @@ $root-font-size-md:                             	12px; // Root font size for mob
 
 // Layout Theme Colors
 $layout-themes: (
-	dark:  #5e45c1, // Dark theme color
+	dark:  #5640b5, // Dark theme color
 	light: #ffffff // Light theme color
 ) !default;
 
@@ -419,7 +419,7 @@ $header-menu-config: (
 							self: (
 								bg-color: (
 									default: none,
-									active: #d35989,
+									active: none,
 									here: none,
 									hover: none
 								)
@@ -480,9 +480,9 @@ $header-menu-config: (
 									self: (
 										bg-color: (
 											default: transparent,
-											open: #d35989,
-											active: #d35989,
-											hover: #d35989
+											open: #cf5786,
+											active: #cf5786,
+											hover: #cf5786
 										)
 									),
 
@@ -795,10 +795,10 @@ $header-menu-config: (
 								self: (
 									bg-color: (
 										default: transparent,
-										open: #d35989,
-										here: #d35989,
-										active: #d35989,
-										hover: #d35989
+										open: #cf5786,
+										here: #cf5786,
+										active: #cf5786,
+										hover: #cf5786
 									)
 								),
 								// Icon
@@ -883,10 +883,10 @@ $header-menu-config: (
 										self: (
 											bg-color: (
 												default: transparent,
-												open: #d35989,
-												here: #d35989,
-												active: #d35989,
-												hover: #d35989
+												open: #cf5786,
+												here: #cf5786,
+												active: #cf5786,
+												hover: #cf5786
 											)
 										),
 
@@ -1653,10 +1653,10 @@ $aside-menu-config: (
 							self: (
 								bg-color: (
 									default: transparent,
-									open: #d35989,
-									here: #d35989,
-									active: #d35989,
-									hover: #d35989
+									open: #cf5786,
+									here: #cf5786,
+									active: #cf5786,
+									hover: #cf5786
 								)
 							),
 
@@ -1747,10 +1747,10 @@ $aside-menu-config: (
 									self: (
 										bg-color: (
 											default: transparent,
-											open: #d35989,
-											here: #d35989,
-											active: #d35989,
-											hover: #d35989
+											open: #cf5786,
+											here: #cf5786,
+											active: #cf5786,
+											hover: #cf5786
 										)
 									),
 									// Icon

@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ErrorsComponent,
     children: [
       {
-        path: '404',
+        path: 'error-1',
         component: Error1Component,
       },
       {
