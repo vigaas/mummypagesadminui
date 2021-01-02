@@ -6,6 +6,7 @@ import { ArticleAddEditComponent } from './article-add-edit/article-add-edit.com
 import { ArticleListComponent } from './article-list/article-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ArticlePendingListComponent } from './article-pending-list/article-pending-list.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
         path: 'delete/:articleId',
         component: ArticleAddEditComponent
       },
+      {
+        path: 'pending-approval',
+        component: ArticlePendingListComponent
+      },
       { path: '', redirectTo: '', pathMatch: 'full' },
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
@@ -38,7 +43,8 @@ const routes: Routes = [
   declarations: [
     ArticleComponent,
     ArticleAddEditComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    ArticlePendingListComponent
   ],
   imports: [
     CommonModule,
