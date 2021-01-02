@@ -15,7 +15,7 @@ import {
   ISortView,
   PaginatorState,
   SortState,
-} from '../../../../../_metronic/shared/crud-table';
+} from '../../../../../_mummypage/shared/crud-table';
 import { RemarksService } from '../../../_services';
 import { DeleteRemarkModalComponent } from './delete-remark-modal/delete-remark-modal.component';
 import { DeleteRemarksModalComponent } from './delete-remarks-modal/delete-remarks-modal.component';

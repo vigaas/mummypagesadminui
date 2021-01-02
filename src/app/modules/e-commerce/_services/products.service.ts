@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { TableService } from '../../../_metronic/shared/crud-table';
+import { TableService } from '../../../_mummypage/shared/crud-table';
 import { environment } from '../../../../environments/environment';
 import { Product } from '../_models/product.model';
 import { HttpClient } from '@angular/common/http';

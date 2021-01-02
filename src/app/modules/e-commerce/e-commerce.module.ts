@@ -6,7 +6,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { ProductsComponent } from './products/products.component';
 import { ECommerceComponent } from './e-commerce.component';
 import { ECommerceRoutingModule } from './e-commerce-routing.module';
-import { CRUDTableModule } from '../../_metronic/shared/crud-table';
+import { CRUDTableModule } from '../../_mummypage/shared/crud-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteCustomerModalComponent } from './customers/components/delete-customer-modal/delete-customer-modal.component';
 import { DeleteCustomersModalComponent } from './customers/components/delete-customers-modal/delete-customers-modal.component';

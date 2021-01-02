@@ -18,7 +18,7 @@ import xml from 'highlight.js/lib/languages/xml';
 import json from 'highlight.js/lib/languages/json';
 import scss from 'highlight.js/lib/languages/scss';
 import typescript from 'highlight.js/lib/languages/typescript';
-import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
+import { SplashScreenModule } from './_mummypage/partials/layout/splash-screen/splash-screen.module';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
 // #fake-end#
@@ -27,7 +27,7 @@ import { ApiserviceService } from './modules/auth/_services/apiservice.service';
 import { JwtInterceptor } from './modules/auth/_services/jwt.interceptor';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { LoaderService } from './modules/auth/_services/loader.service';
-import { LoaderComponent } from './_metronic/partials/layout/loader/loader.component';
+import { LoaderComponent } from './_mummypage/partials/layout/loader/loader.component';
 
 function appInitializer(authService: AuthService) {
   return () => {

@@ -19,7 +19,7 @@ import {
   IFilterView,
   IGroupingView,
   ISearchView,
-} from '../../../_metronic/shared/crud-table';
+} from '../../../_mummypage/shared/crud-table';
 import { DeleteCustomerModalComponent } from './components/delete-customer-modal/delete-customer-modal.component';
 import { DeleteCustomersModalComponent } from './components/delete-customers-modal/delete-customers-modal.component';
 import { UpdateCustomersStatusModalComponent } from './components/update-customers-status-modal/update-customers-status-modal.component';

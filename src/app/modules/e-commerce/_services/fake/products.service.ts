@@ -2,7 +2,7 @@ import { Injectable, OnDestroy, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, Observable } from 'rxjs';
 import { exhaustMap, map } from 'rxjs/operators';
-import { TableService, TableResponseModel, ITableState, BaseModel } from '../../../../_metronic/shared/crud-table';
+import { TableService, TableResponseModel, ITableState, BaseModel } from '../../../../_mummypage/shared/crud-table';
 import { Product } from '../../_models/product.model';
 import { baseFilter } from '../../../../_fake/fake-helpers/http-extenstions';
 import { environment } from '../../../../../environments/environment';

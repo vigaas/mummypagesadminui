@@ -1,4 +1,6 @@
 export const DefaultLayoutConfig = {
+  demo: 'demo1',
+  // Javascript Settings
   js: {
     breakpoints: {
       sm: 576,
@@ -11,7 +13,7 @@ export const DefaultLayoutConfig = {
       theme: {
         base: {
           white: '#ffffff',
-          primary: '#d25988',
+          primary: '#3699FF',
           secondary: '#E5EAEE',
           success: '#1BC5BD',
           info: '#8950FC',
@@ -145,7 +147,7 @@ export const DefaultLayoutConfig = {
 
     footer: {
       self: {
-        display: true,
+        display: false,
       },
     },
 
@@ -165,7 +167,7 @@ export const DefaultLayoutConfig = {
 
   // Footer
   footer: {
-    display: false,
+    display: true,
     width: 'fluid',
     fixed: true,
   },
@@ -183,7 +185,7 @@ export const DefaultLayoutConfig = {
 
     // Notifications
     notifications: {
-      display: false,
+      display: true,
       layout: 'dropdown', // offcanvas, dropdown,
       dropdown: {
         style: 'dark', // light|dark

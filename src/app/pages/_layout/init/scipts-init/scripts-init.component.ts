@@ -3,7 +3,7 @@ import { KTUtil } from '../../../../../assets/js/components/util';
 import KTLayoutAsideToggle from '../../../../../assets/js/layout/base/aside-toggle';
 import KTLayoutStickyCard from '../../../../../assets/js/layout/base/sticky-card';
 import KTLayoutStretchedCard from '../../../../../assets/js/layout/base/stretched-card';
-import { LayoutService } from '../../../../_metronic/core';
+import { LayoutService } from '../../../../_mummypage/core';
 import KTLayoutBrand from '../../../../../assets/js/layout/base/brand';
 import KTLayoutAside from '../../../../../assets/js/layout/base/aside';
 import KTLayoutAsideMenu from '../../../../../assets/js/layout/base/aside-menu';

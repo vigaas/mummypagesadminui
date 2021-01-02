@@ -6,8 +6,8 @@ import { MaterialComponent } from './material.component';
 import { AutocompleteComponent } from './formcontrols/autocomplete/autocomplete.component';
 import { CheckboxComponent } from './formcontrols/checkbox/checkbox.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CoreModule } from '../../_metronic/core';
-import { GeneralModule } from '../../_metronic/partials/content/general/general.module';
+import { CoreModule } from '../../_mummypage/core';
+import { GeneralModule } from '../../_mummypage/partials/content/general/general.module';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {
   MatRippleModule,

@@ -15,7 +15,7 @@ import {
   ISortView,
   PaginatorState,
   SortState,
-} from '../../../../../_metronic/shared/crud-table';
+} from '../../../../../_mummypage/shared/crud-table';
 import { SPECIFICATIONS_DICTIONARY } from '../../../_models/specification.dictionary';
 import { SpecificationsService } from '../../../_services';
 import { DeleteSpecModalComponent } from './delete-spec-modal/delete-spec-modal.component';

@@ -1,6 +1,6 @@
 import { Injectable, Inject, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TableService } from '../../../_metronic/shared/crud-table';
+import { TableService } from '../../../_mummypage/shared/crud-table';
 import { Customer } from '../_models/customer.model';
 import { environment } from '../../../../environments/environment';
 

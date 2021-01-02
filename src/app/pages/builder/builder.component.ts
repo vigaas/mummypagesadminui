@@ -6,7 +6,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { LayoutService } from '../../_metronic/core/';
+import { LayoutService } from '../../_mummypage/core/';
 import KTLayoutExamples from '../../../assets/js/layout/extended/examples';
 
 @Component({

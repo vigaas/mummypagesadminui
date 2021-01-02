@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { TableService } from 'src/app/_metronic/shared/crud-table';
+import { TableService } from 'src/app/_mummypage/shared/crud-table';
 import { environment } from 'src/environments/environment';
 import { ProductRemark } from '../_models/product-remark.model';
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { GeneralModule } from '../../_metronic/partials/content/general/general.module';
+import { GeneralModule } from '../../_mummypage/partials/content/general/general.module';
 import { BuilderComponent } from './builder.component';
 import { FormsModule } from '@angular/forms';
 import { NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';

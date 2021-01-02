@@ -17,7 +17,7 @@ import {
   IFilterView,
   IGroupingView,
   ISearchView,
-} from '../../../_metronic/shared/crud-table';
+} from '../../../_mummypage/shared/crud-table';
 import { DeleteProductModalComponent } from './components/delete-product-modal/delete-product-modal.component';
 import { DeleteProductsModalComponent } from './components/delete-products-modal/delete-products-modal.component';
 import { UpdateProductsStatusModalComponent } from './components/update-products-status-modal/update-products-status-modal.component';

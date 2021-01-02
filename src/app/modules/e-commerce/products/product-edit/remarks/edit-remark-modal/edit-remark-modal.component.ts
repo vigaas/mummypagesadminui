@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal, NgbDateAdapter, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { of, Subscription } from 'rxjs';
 import { RemarksService } from '../../../../_services';
-import { CustomAdapter, CustomDateParserFormatter } from '../../../../../../_metronic/core';
+import { CustomAdapter, CustomDateParserFormatter } from '../../../../../../_mummypage/core';
 import { ProductRemark } from '../../../../_models/product-remark.model';
 import { catchError, first, tap } from 'rxjs/operators';
 
