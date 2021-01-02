@@ -26,7 +26,7 @@
                     publishType
                 </th>
                 <th>
-                  Status
+                  Date
                 </th>
                 <th>ACTIONS</th>
               </thead>
@@ -39,7 +39,7 @@
                   </td>
                   <td>{{ articleItem.description | slice:0:140 }}{{ articleItem.description.length >=140 ? '...' :'' }}</td>
                   <td>{{ articleItem.publishType }}</td>
-                  <td><a (click)="approveArticle(articleItem._id, articleItem.isApproved)" [routerLink]=""> {{ articleItem.isApproved? 'Approved' : 'Approve'}}</a></td>
+                  <td>{{ articleItem.publishedOn | date:'dd/MM/yyyy' }}</td>
                   <td><a [routerLink]="['/article/edit',articleItem._id]">Edit</a>
                     <span> | </span>
                     <a role="button" [routerLink]="" (click)="deleteArticle(articleItem._id)">Delete</a>
