@@ -11,6 +11,7 @@ import KTLayoutQuickPanel from '../../../../../assets/js/layout/extended/quick-p
 import KTLayoutQuickUser from '../../../../../assets/js/layout/extended/quick-user';
 import KTLayoutHeaderTopbar from '../../../../../assets/js/layout/base/header-topbar';
 import { KTUtil } from '../../../../../assets/js/components/util';
+import { ApiserviceService } from '../../../../modules/auth/_services/apiservice.service';
 
 @Component({
   selector: 'app-topbar',
@@ -32,9 +33,11 @@ export class TopbarComponent implements OnInit, AfterViewInit {
   extrasLanguagesDisplay: boolean;
   extrasUserDisplay: boolean;
   extrasUserLayout: 'offcanvas' | 'dropdown';
+  userInfo;
 
-  constructor(private layout: LayoutService, private auth: AuthService) {
+  constructor(private layout: LayoutService, private auth: AuthService, private apiservice: ApiserviceService) {
     this.user$ = this.auth.currentUserSubject.asObservable();
+    this.userInfo = this.apiservice.getuserinfo();
   }
 
   ngOnInit(): void {
@@ -60,6 +63,7 @@ export class TopbarComponent implements OnInit, AfterViewInit {
     );
     this.extrasUserDisplay = this.layout.getProp('extras.user.display');
     this.extrasUserLayout = this.layout.getProp('extras.user.layout');
+    console.log(this.extrasUserDisplay);
     this.extrasQuickPanelDisplay = this.layout.getProp(
       'extras.quickPanel.display'
     );

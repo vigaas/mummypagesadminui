@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class DasboardModuleComponent implements OnInit {
+export class DasboardsModuleComponent implements OnInit {
 
   constructor() { }
 

@@ -51,6 +51,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // build view by layout config settings
     this.selfLayout = this.layout.getProp('self.layout');
+    console.log(this.selfLayout);
     this.asideSelfDisplay = this.layout.getProp('aside.self.display');
     this.subheaderDisplay = this.layout.getProp('subheader.display');
     this.contentClasses = this.layout.getStringCSSClasses('content');

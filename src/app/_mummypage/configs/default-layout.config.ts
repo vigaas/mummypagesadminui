@@ -210,7 +210,7 @@ export const DefaultLayoutConfig = {
     // User
     user: {
       display: true,
-      layout: 'offcanvas', // offcanvas, dropdown,
+      layout: 'dropdown', // offcanvas, dropdown,
       dropdown: {
         style: 'dark', // light|dark
       },
@@ -221,7 +221,7 @@ export const DefaultLayoutConfig = {
 
     // Languages
     languages: {
-      display: true,
+      display: false,
     },
 
     // Cart
