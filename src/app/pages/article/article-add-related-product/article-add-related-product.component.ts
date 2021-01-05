@@ -55,7 +55,7 @@ export class ArticleAddRelatedProductComponent implements OnInit {
     const productImg = [];
     this.products.forEach((element, index) => {
       productImg.push(element.productImg);
-      formData.append(`product${index + 1}Thumnail`,  element.productImg);
+      formData.append(`product${index + 1}Thumbnail`,  element.productImg);
       delete element.productImg;
     });
     formData.append('relatedProducts', JSON.stringify( this.products));
