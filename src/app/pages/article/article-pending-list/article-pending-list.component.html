@@ -32,7 +32,7 @@
               <td>
                 {{ articleItem.title | slice:0:30 }}{{ articleItem.description.length >=30 ? '...' :'' }}
               </td>
-              <td>{{ articleItem.description | slice:0:30 }}{{ articleItem.description.length >=30 ? '...' :'' }}</td>
+              <td [innerHtml]="articleItem.description | slice:0:130">{{ articleItem.description.length >=130 ? '...' :'' }}</td>
               <td>{{ articleItem.publishType }}</td>
               <td><a (click)="approveArticle(articleItem._id, articleItem.isApproved)" [routerLink]="">Approve</a></td>
               <td>

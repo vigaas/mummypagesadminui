@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ApiserviceService } from 'src/app/modules/auth/_services/apiservice.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-add-related-product',
@@ -19,11 +19,12 @@ export class ArticleAddRelatedProductComponent implements OnInit {
   }];
 
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
-  constructor(  public apiservice: ApiserviceService, public router: ActivatedRoute) { }
+  constructor(  public apiservice: ApiserviceService, public router: ActivatedRoute, public routers: Router) { }
 
   ngOnInit(): void {
     this.router.paramMap.subscribe(data => {
       this.articleId = data.get('articleId');
+      this._getArticleById();
     });
   }
 
@@ -64,8 +65,9 @@ export class ArticleAddRelatedProductComponent implements OnInit {
     .apiputcall(`articles/approve/${this.articleId}`, formData)
     .subscribe(results => {
       Swal.fire('Updated!', 'Your Article has been Updated.', 'success');
+      this.routers.navigate(['/article/pending-approval']);
     });
-    form.reset();
+   
   }
 
   public addProducts(){
@@ -83,5 +85,17 @@ export class ArticleAddRelatedProductComponent implements OnInit {
 
   public removeProducts(index){
     this.products.splice(index, 1);
+  }
+
+
+  private _getArticleById(): void {
+    this.apiservice
+      .apigetcall(`articles/${this.articleId}`, {})
+      .subscribe(resp => {
+        if (resp && resp.relatedProducts.length) {
+          this.products = resp.relatedProducts;
+
+        }
+      });
   }
 }

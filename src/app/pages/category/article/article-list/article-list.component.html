@@ -37,7 +37,7 @@
                   <td>
                     {{ articleItem.title }}
                   </td>
-                  <td>{{ articleItem.description | slice:0:140 }}{{ articleItem.description.length >=140 ? '...' :'' }}</td>
+                  <td [innerHtml]="articleItem.description"></td>
                   <td>{{ articleItem.publishType }}</td>
                   <td>{{ articleItem.publishedOn | date:'dd/MM/yyyy' }}</td>
                   <td><a [routerLink]="['/article/edit',articleItem._id]">Edit</a>
