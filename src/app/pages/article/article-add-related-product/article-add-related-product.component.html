@@ -1,0 +1,122 @@
+<!-- begin:Table -->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+      <div class="card-title">
+        <h3 class="card-label">Add Related Products</h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <form novalidate #relatedProductForm="ngForm">
+        <div class="col-md-12 text-right">
+            <a role="button" (click)="addProducts()">
+              +Add more product</a
+            >
+          </div>
+          <div *ngFor="
+          let item of products;
+          let itemIndex = index
+        " >
+
+        <div class="row">
+            <div class="col-md-6 product-text">
+                <a>Product {{itemIndex +1}}</a>
+            </div>
+            <div class="col-md-6 text-right remove-text">
+                <a role="button" (click)="removeProducts(itemIndex)">
+                  - Remove product</a
+                >
+              </div>
+        </div>
+           
+           
+            <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="productName_{{ itemIndex }}"
+                  #productName="ngModel"
+                  placeholder="Product Name"
+                  required
+                  [(ngModel)]="item.name"
+                />                                                                                                                                                                                
+                <ng-container                                                                                                                                                                             
+                [ngTemplateOutlet]="formError"
+                [ngTemplateOutletContext]="{
+                  validation: 'required',
+                  message: 'Product Name is required',
+                  control: productName
+                }"
+              ></ng-container>
+              </div>
+              <div class="form-group">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="productLink_{{ itemIndex }}"
+                    #productLink="ngModel"
+                    placeholder="Product Link"
+                    required
+                    [(ngModel)]="item.link"
+                  />                                                                                                                                                                                
+                  <ng-container                                                                                                                                                                             
+                  [ngTemplateOutlet]="formError"
+                  [ngTemplateOutletContext]="{
+                    validation: 'required',
+                    message: 'Product Link is required',
+                    control: productLink
+                  }"
+                ></ng-container>
+                </div>
+      
+              <div class="form-group">
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="customFile"
+                      name="productImg_{{ itemIndex }}"
+                      [(ngModel)]="item.productImg"
+                      required
+                      [accept]="supportedImageFiles"
+                      (change)="onChangeThumbnailFile($event.target.files, itemIndex)"
+                    />
+                    <label class="custom-file-label" for="customFile"
+                      >Choose Product Image
+                    </label>
+                  </div>
+                  <div *ngIf="relatedProductForm.submitted && !item.productImg">
+                    Product Image is required
+                  </div>
+                </div>
+          </div>
+
+
+        <div class="form-group">
+          <button
+            class="btn btn-primary"
+            (click)="onClickSaveArticle(relatedProductForm)"
+            type="submit"
+          >
+            Save Products
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <ng-template
+    #formError
+    let-control="control"
+    let-message="message"
+    let-validation="validation"
+    
+  >  <ng-container
+      *ngIf="(relatedProductForm.submitted || control.dirty || control.touched) && control.hasError(validation)"
+    >
+      <div class="fv-plugins-message-container">
+        <div class="fv-help-block">
+          {{ message }}
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+  

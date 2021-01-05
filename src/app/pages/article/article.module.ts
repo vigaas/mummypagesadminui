@@ -7,6 +7,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ArticlePendingListComponent } from './article-pending-list/article-pending-list.component';
+import { ArticleAddRelatedProductComponent } from './article-add-related-product/article-add-related-product.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
         path: 'pending-approval',
         component: ArticlePendingListComponent
       },
+      {
+        path: 'add-related-product/:articleId',
+        component: ArticleAddRelatedProductComponent
+      },
       { path: '', redirectTo: '', pathMatch: 'full' },
       { path: '**', redirectTo: '', pathMatch: 'full' }
     ]
@@ -44,7 +49,8 @@ const routes: Routes = [
     ArticleComponent,
     ArticleAddEditComponent,
     ArticleListComponent,
-    ArticlePendingListComponent
+    ArticlePendingListComponent,
+    ArticleAddRelatedProductComponent
   ],
   imports: [
     CommonModule,

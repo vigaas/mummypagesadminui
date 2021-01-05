@@ -30,15 +30,17 @@
             let articleItem of apiData.articlesData
           ">
               <td>
-                {{ articleItem.title | slice:0:60 }}{{ articleItem.description.length >=60 ? '...' :'' }}
+                {{ articleItem.title | slice:0:30 }}{{ articleItem.description.length >=30 ? '...' :'' }}
               </td>
-              <td>{{ articleItem.description | slice:0:60 }}{{ articleItem.description.length >=60 ? '...' :'' }}</td>
+              <td>{{ articleItem.description | slice:0:30 }}{{ articleItem.description.length >=30 ? '...' :'' }}</td>
               <td>{{ articleItem.publishType }}</td>
               <td><a (click)="approveArticle(articleItem._id, articleItem.isApproved)" [routerLink]="">Approve</a></td>
               <td>
                 <a [routerLink]="['/article/edit',articleItem._id]">Detail</a>
                     <span> | </span>
                 <a role="button" [routerLink]="" (click)="deleteArticle(articleItem._id)">Delete</a>
+                <span> | </span>
+                <a role="button" [routerLink]="['/article/add-related-product',articleItem._id]" >Edit</a>
               </td>
             </tr>
           </tbody>
