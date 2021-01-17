@@ -26,4 +26,19 @@ export class UserListComponent implements OnInit {
       });
   }
 
+  public verifyUser(iamUserId: string): void {
+    console.log(' this is the userId', iamUserId);
+    this.apiservice.apipostcall(`iam/users/verify/${iamUserId}`, {})
+    .subscribe(resp => {
+      if ( resp){
+        Swal.fire(
+          'Verified!',
+          'User has been verified.',
+          'success'
+        );
+        this.getuserList();
+      }
+    });
+  }
+
 }
