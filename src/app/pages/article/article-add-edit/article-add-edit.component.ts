@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiserviceService } from '../../../modules/auth/_services/apiservice.service';
 import Swal from 'sweetalert2';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FroalaOptions } from 'ngx-froala';
 
 @Component({
   selector: 'app-article-add-edit',
@@ -19,51 +20,52 @@ export class ArticleAddEditComponent implements OnInit {
     articleImages: [],
     articleLanguage : null
   };
-  public editorConfig: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: '300px',
-    minHeight: '300px',
-    width: 'auto',
-    minWidth: '0',
-    translate: 'yes',
-    enableToolbar: true,
-    showToolbar: true,
-    placeholder: 'Enter text here...',
-    defaultParagraphSeparator: '',
-    defaultFontName: '',
-    defaultFontSize: '',
-    fonts: [
-      {class: 'arial', name: 'Arial'},
-      {class: 'times-new-roman', name: 'Times New Roman'},
-      {class: 'calibri', name: 'Calibri'},
-      {class: 'comic-sans-ms', name: 'Comic Sans MS'}
-    ],
-    customClasses: [
-    {
-      name: 'quote',
-      class: 'quote',
-    },
-    {
-      name: 'redText',
-      class: 'redText'
-    },
-    {
-      name: 'titleText',
-      class: 'titleText',
-      tag: 'h1',
-    },
-  ],
-  // uploadUrl: 'v1/image',
-  uploadWithCredentials: false,
-  sanitize: true,
-  toolbarPosition: 'top',
-  toolbarHiddenButtons: [
-    ['bold', 'italic'],
-    ['fontSize',
-    'insertVideo', ]
-  ]
-};
+  editorConfig: FroalaOptions;
+//   public editorConfig: AngularEditorConfig = {
+//     editable: true,
+//     spellcheck: true,
+//     height: '300px',
+//     minHeight: '300px',
+//     width: 'auto',
+//     minWidth: '0',
+//     translate: 'yes',
+//     enableToolbar: true,
+//     showToolbar: true,
+//     placeholder: 'Enter text here...',
+//     defaultParagraphSeparator: '',
+//     defaultFontName: '',
+//     defaultFontSize: '',
+//     fonts: [
+//       {class: 'arial', name: 'Arial'},
+//       {class: 'times-new-roman', name: 'Times New Roman'},
+//       {class: 'calibri', name: 'Calibri'},
+//       {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+//     ],
+//     customClasses: [
+//     {
+//       name: 'quote',
+//       class: 'quote',
+//     },
+//     {
+//       name: 'redText',
+//       class: 'redText'
+//     },
+//     {
+//       name: 'titleText',
+//       class: 'titleText',
+//       tag: 'h1',
+//     },
+//   ],
+//   // uploadUrl: 'v1/image',
+//   uploadWithCredentials: false,
+//   sanitize: true,
+//   toolbarPosition: 'top',
+//   toolbarHiddenButtons: [
+//     ['bold', 'italic'],
+//     ['fontSize',
+//     'insertVideo', ]
+//   ]
+// };
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
   public featuredImages: any = '';
   public articleImages: any = '';

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ArticlePendingListComponent } from './article-pending-list/article-pending-list.component';
 import { ArticleAddRelatedProductComponent } from './article-add-related-product/article-add-related-product.component';
+import { NgxFroalaModule } from 'ngx-froala';
 
 const routes: Routes = [
   {
@@ -57,6 +58,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     AngularEditorModule,
+    NgxFroalaModule,
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule],
