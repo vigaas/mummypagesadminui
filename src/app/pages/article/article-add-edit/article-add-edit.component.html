@@ -184,12 +184,12 @@
             name="featuredImage"
             #featuredImage="ngModel"
             [(ngModel)]="featuredImages"
-            required
+            [required]="!articleId"
             [accept]="supportedImageFiles"
             (change)="onChangeThumbnailFile($event.target.files)"
           />
-          <label class="custom-file-label" for="customFile"
-            >Choose featuredImage
+          <label class="custom-file-label" id="featuredImages" for="customFile"
+            >{{featuredImagesLabel}}
           </label>
         </div>
         <ng-container
@@ -212,11 +212,11 @@
             [(ngModel)]="articleImages"
             [accept]="supportedImageFiles"
             multiple
-            required
+            [required]="!articleId"
             (change)="onChangearticleImagesFile($event.target.files)"
           />
-          <label class="custom-file-label" for="customFile"
-            >Choose ArticleImages
+          <label class="custom-file-label" id="articleImages" for="customFile"
+            >{{articleImagesLabel}}
           </label>
         </div>
         <ng-container

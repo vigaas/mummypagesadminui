@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ApiserviceService } from '../../../modules/auth/_services/apiservice.service';
+import { ApiserviceService } from '../../../../modules/auth/_services/apiservice.service';
 import Swal from 'sweetalert2';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 

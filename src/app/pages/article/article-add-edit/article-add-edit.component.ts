@@ -69,6 +69,8 @@ export class ArticleAddEditComponent implements OnInit {
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
   public featuredImages: any = '';
   public articleImages: any = '';
+  public featuredImagesLabel: any = 'Choose featuredImage';
+  public articleImagesLabel: any = 'Choose Article Images (Max 10)';
   public apiData: any = {
     publishType: [
       {
@@ -108,6 +110,7 @@ export class ArticleAddEditComponent implements OnInit {
 
   public onChangeThumbnailFile(files: FileList): void {
     const fileReader = new FileReader();
+    const imageLabel = document.getElementById('featuredImages');
 
     if (files && files.length > 0) {
       const thumbnailFile = files.item(0);
@@ -117,23 +120,27 @@ export class ArticleAddEditComponent implements OnInit {
         fileReader.readAsText(thumbnailFile);
         fileReader.onload = () => {
           const file = files.item(0);
-          this.articleFormFields.featuredImage = file;
+          this.featuredImages = file;
+          imageLabel.textContent = file.name;
         };
       } else {
         const fileFormatError = `Only ${this.supportedImageFiles.join(
           ', '
         )} file is allowed`;
         Swal.fire('Alert!', fileFormatError, 'warning');
-        this.articleFormFields.featuredImage = '';
+        this.featuredImages = '';
+        imageLabel.textContent = this.featuredImagesLabel;
       }
     }
   }
 
   public onChangearticleImagesFile(files: FileList): void {
+    const imageLabel = document.getElementById('articleImages');
+
     if (files && files.length > 0) {
       if (files.length > 10) {
         Swal.fire('Alert!', 'You can upload upto 10 Images', 'info');
-        this.articleFormFields.articleImages = null;
+        this.articleImages = null;
         return;
       }
       // tslint:disable-next-line: prefer-for-of
@@ -146,14 +153,16 @@ export class ArticleAddEditComponent implements OnInit {
           fileReader.readAsText(thumbnailFile);
           fileReader.onload = () => {
             const file = files.item(index);
-            this.articleFormFields.articleImages.push(file);
+            this.articleImages.push(file);
+            imageLabel.textContent = thumbnailFile.name;
           };
         } else {
           const fileFormatError = `Only ${this.supportedImageFiles.join(
             ', '
           )} file is allowed`;
           Swal.fire('Alert!', fileFormatError, 'warning');
-          this.articleFormFields.articleImages = null;
+          this.articleImages = null;
+          imageLabel.textContent = this.articleImagesLabel;
           return;
         }
       }
@@ -193,10 +202,14 @@ export class ArticleAddEditComponent implements OnInit {
     formData.append('categoryId', this.articleFormFields.categoryId);
     formData.append('articleLanguage', this.articleFormFields.articleLanguage);
     formData.append('publishType', this.articleFormFields.publishType);
-    formData.append('featuredImage', this.articleFormFields.featuredImage);
-    this.articleFormFields.articleImages.forEach(element => {
-        formData.append('articleImages', element);
-      });
+    if (this.featuredImages){
+      formData.append('featuredImage', this.featuredImages);
+    }
+    if (this.articleImages && this.articleImages.length){
+      this.articleImages.forEach(element => {
+          formData.append('articleImages', element);
+        });
+    }
     if (this.articleId) {
       this.apiservice
         .apiputcall(`articles/${this.articleId}`, formData)
@@ -229,8 +242,8 @@ export class ArticleAddEditComponent implements OnInit {
       .subscribe(resp => {
         if (resp) {
           this.articleFormFields = resp;
-          this.articleImages = this.articleFormFields.images;
-          this.featuredImages = this.articleFormFields.featuredImage;
+          // this.articleImages = this.articleFormFields.images;
+          // this.featuredImages = this.articleFormFields.featuredImage;
         }
       });
   }
