@@ -183,7 +183,7 @@
             id="customFile"
             name="featuredImage"
             #featuredImage="ngModel"
-            [(ngModel)]="featuredImages"
+            [(ngModel)]="articleFormFields.featuredImages"
             [required]="!articleId"
             [accept]="supportedImageFiles"
             (change)="onChangeThumbnailFile($event.target.files)"
@@ -209,7 +209,7 @@
             id="customFile"
             name="articleImage"
             #articleImage="ngModel"
-            [(ngModel)]="articleImages"
+            [(ngModel)]="articleFormFields.articleImages"
             [accept]="supportedImageFiles"
             multiple
             [required]="!articleId"

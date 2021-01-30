@@ -68,7 +68,7 @@ export class ArticleAddEditComponent implements OnInit {
 // };
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
   public featuredImages: any = '';
-  public articleImages: any = '';
+  public articleImages: any[] = [];
   public featuredImagesLabel: any = 'Choose featuredImage';
   public articleImagesLabel: any = 'Choose Article Images (Max 10)';
   public apiData: any = {
@@ -136,11 +136,10 @@ export class ArticleAddEditComponent implements OnInit {
 
   public onChangearticleImagesFile(files: FileList): void {
     const imageLabel = document.getElementById('articleImages');
-
     if (files && files.length > 0) {
       if (files.length > 10) {
         Swal.fire('Alert!', 'You can upload upto 10 Images', 'info');
-        this.articleImages = null;
+        this.articleImages = [];
         return;
       }
       // tslint:disable-next-line: prefer-for-of
@@ -161,7 +160,7 @@ export class ArticleAddEditComponent implements OnInit {
             ', '
           )} file is allowed`;
           Swal.fire('Alert!', fileFormatError, 'warning');
-          this.articleImages = null;
+          this.articleImages = [];
           imageLabel.textContent = this.articleImagesLabel;
           return;
         }
