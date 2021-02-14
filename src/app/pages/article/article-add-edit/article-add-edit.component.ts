@@ -217,6 +217,7 @@ export class ArticleAddEditComponent implements OnInit {
           this.router.navigate(['/article']);
         });
     } else {
+      debugger;
       this.apiservice.apipostcall('articles', formData).subscribe(results => {
         Swal.fire('Added!', 'Your Article has been Added.', 'success');
         this.router.navigate(['/article']);

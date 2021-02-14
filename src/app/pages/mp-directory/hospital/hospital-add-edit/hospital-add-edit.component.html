@@ -138,7 +138,23 @@
                   [(ngModel)]="hospitalInfo.hoursOfOperation"
                 />
               </div>
-            
+              <div class="form-group">
+                <div class="custom-file">
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="customFile"
+                    name="featuredImage"
+                   
+                    [(ngModel)]="hospitalInfo.featuredImages"
+                    [accept]="supportedImageFiles"
+                    (change)="onChangeThumbnailFile($event.target.files)"
+                  />
+                  <label class="custom-file-label" id="featuredImages" for="customFile"
+                    >{{featuredImagesLabel}}
+                  </label>
+                </div>
+              </div>
   
             <div class="form-group">
               <button
