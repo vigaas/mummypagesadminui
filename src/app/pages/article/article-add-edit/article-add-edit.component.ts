@@ -208,6 +208,11 @@ public languages = 'name';
     }
 
     const formData = new FormData();
+    if (this.articleFormFields.scheduleDate) {
+      const date = new Date(this.articleFormFields.scheduleDate);
+
+      formData.append('publishedOn', date.toISOString());
+    }
     formData.append('title', this.articleFormFields.title);
     formData.append('description', this.articleFormFields.description);
     formData.append('type', this.articleFormFields.type);
