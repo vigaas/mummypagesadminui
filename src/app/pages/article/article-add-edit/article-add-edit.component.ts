@@ -66,6 +66,8 @@ export class ArticleAddEditComponent implements OnInit {
 //     'insertVideo', ]
 //   ]
 // };
+public languages = 'name';
+
   public supportedImageFiles: string[] = ['.png', '.jpg', '.jpeg'];
   public featuredImages: any = '';
   public articleImages: any[] = [];
@@ -77,6 +79,11 @@ export class ArticleAddEditComponent implements OnInit {
         id: 1,
         name: 'IMMEDIATE',
         apiKey: 'IMMEDIATE'
+      },
+      {
+        id: 2,
+        name: 'SCHEDULED',
+        apiKey: 'SCHEDULED',
       }
     ],
     type: [
@@ -132,6 +139,26 @@ export class ArticleAddEditComponent implements OnInit {
         imageLabel.textContent = this.featuredImagesLabel;
       }
     }
+  }
+
+  public onChangeLanguage(): void {
+    switch (this.articleFormFields.articleLanguage) {
+      case 'ENGLISH':
+        this.languages = 'name';
+        break;
+
+      case 'SINHALA':
+        this.languages = 'shinhala';
+        break;
+
+      default:
+        this.languages = this.articleFormFields.articleLanguage.toLowerCase();
+        break;
+    }
+  }
+
+  public scheduleDate(eventType: string) {
+    this.articleFormFields.scheduleDate = null;
   }
 
   public onChangearticleImagesFile(files: FileList): void {
@@ -217,7 +244,6 @@ export class ArticleAddEditComponent implements OnInit {
           this.router.navigate(['/article']);
         });
     } else {
-      debugger;
       this.apiservice.apipostcall('articles', formData).subscribe(results => {
         Swal.fire('Added!', 'Your Article has been Added.', 'success');
         this.router.navigate(['/article']);

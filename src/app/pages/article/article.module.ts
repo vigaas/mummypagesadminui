@@ -9,6 +9,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ArticlePendingListComponent } from './article-pending-list/article-pending-list.component';
 import { ArticleAddRelatedProductComponent } from './article-add-related-product/article-add-related-product.component';
 import { NgxFroalaModule } from 'ngx-froala';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 const routes: Routes = [
   {
@@ -56,6 +57,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    OwlDateTimeModule, OwlNativeDateTimeModule,
     ReactiveFormsModule,
     AngularEditorModule,
     NgxFroalaModule,

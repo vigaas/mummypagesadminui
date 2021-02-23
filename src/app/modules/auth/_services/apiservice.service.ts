@@ -32,8 +32,6 @@ export class ApiserviceService {
   }
 
   apipostcall(url, params) {
-    debugger;
-    debugger;
     const endpoint = environment.apiUrl + url;
     return this.http.post<any>(endpoint, params).pipe(
       map((responses: any) => {
